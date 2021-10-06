@@ -9,11 +9,12 @@ function Register() {
       <form
         className="my-4 col-8 offset-2 border rounded p-5"
         onSubmit={(e) => handleOnSubmit(e)}
+        autoComplete="off"
       >
         <p className="display-4 mb-5">Register</p>
         <div className="form-group row mb-3">
-          <label className="col-sm-2 col-form-label">Username</label>
-          <div className="col-sm-10">
+          <label className="col-sm-3 col-form-label">Username</label>
+          <div className="col-sm-9">
             <input
               type="text"
               name="username"
@@ -23,8 +24,8 @@ function Register() {
           </div>
         </div>
         <div className="form-group row mb-3">
-          <label className="col-sm-2 col-form-label">E-Mail</label>
-          <div className="col-sm-10">
+          <label className="col-sm-3 col-form-label">E-Mail</label>
+          <div className="col-sm-9">
             <input
               type="text"
               name="email"
@@ -34,8 +35,8 @@ function Register() {
           </div>
         </div>
         <div className="form-group row mb-3">
-          <label className="col-sm-2 col-form-label">Password</label>
-          <div className="col-sm-10">
+          <label className="col-sm-3 col-form-label">Password</label>
+          <div className="col-sm-9">
             <input
               type="password"
               name="password"
@@ -45,8 +46,8 @@ function Register() {
           </div>
         </div>
         <div className="form-group row mb-3">
-          <label className="col-sm-2 col-form-label">Confirm Password</label>
-          <div className="col-sm-10">
+          <label className="col-sm-3 col-form-label">Confirm Password</label>
+          <div className="col-sm-9">
             <input
               type="password"
               name="confirmPassword"

@@ -9,11 +9,10 @@ function Login() {
       <form
         className="my-4 col-8 offset-2 border rounded p-5"
         onSubmit={(e) => handleOnSubmit(e)}
-        autoComplete="off"
       >
         <p className="display-4 mb-5">Login</p>
         <div className="form-group row mb-3">
-          <label className="col-sm-2 col-form-label">UserName</label>
+          <label className="col-sm-2 col-form-label">Username</label>
           <div className="col-sm-10">
             <input
               type="text"
@@ -21,16 +20,15 @@ function Login() {
               className="form-control form-control-lg"
               defaultValue={""}
               onChange={handleOnChange}
-              value
             />
           </div>
         </div>
         <div className="form-group row mb-3">
-          <label className="col-sm-2 col-form-label">Phone</label>
+          <label className="col-sm-2 col-form-label">Password</label>
           <div className="col-sm-10">
             <input
-              type="text"
-              name="phone"
+              type="password"
+              name="password"
               className="form-control form-control-lg"
               defaultValue={""}
               onChange={(e) => handleOnChange(e)}

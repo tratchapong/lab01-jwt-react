@@ -1,10 +1,21 @@
+import axios from "axios";
 import {useState} from "react";
+import { useHistory } from "react-router";
+
 
 function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleOnSubmit = (e) => {};
+  const history = useHistory()
+
+  const handleOnSubmit = async (e) => {
+    e.preventDefault()
+    let rs = await axios.post('http://localhost:8080/login', {username, password})
+    console.log(rs)
+    localStorage.setItem('token', rs.data.token)
+    history.push('/')
+  };
 
   return (
     <div className="row">

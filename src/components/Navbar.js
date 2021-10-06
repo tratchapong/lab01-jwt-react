@@ -1,7 +1,15 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 
 function Navbar() {
+  const history = useHistory()
+
+  const hdlLogout = (e) => {
+    e.preventDefault()
+    localStorage.removeItem('token')
+    history.push('/login')
+  }
+  
   return (
     <nav className="navbar navbar-expand navbar-dark bg-secondary">
       <div className="container justify-content-end">
@@ -20,6 +28,9 @@ function Navbar() {
             <Link className="nav-link" to="/register">
               Register
             </Link>
+          </li>
+          <li className="nav-item">
+            <a href="/" className="nav-link" onClick={hdlLogout}>Logout</a>     
           </li>
         </ul>
       </div>

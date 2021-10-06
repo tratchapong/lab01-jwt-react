@@ -1,9 +1,11 @@
-import React from "react";
+import {useState} from "react";
 
 function Login() {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
   const handleOnSubmit = (e) => {};
 
-  const handleOnChange = (e) => {};
   return (
     <div className="row">
       <form
@@ -18,8 +20,8 @@ function Login() {
               type="text"
               name="username"
               className="form-control form-control-lg"
-              defaultValue={""}
-              onChange={handleOnChange}
+              value={username}
+              onChange={e=>setUsername(e.target.value)}
             />
           </div>
         </div>
@@ -30,8 +32,8 @@ function Login() {
               type="password"
               name="password"
               className="form-control form-control-lg"
-              defaultValue={""}
-              onChange={(e) => handleOnChange(e)}
+              value={password}
+              onChange={e=>setPassword(e.target.value)}
             />
           </div>
         </div>

@@ -1,9 +1,31 @@
-import React from 'react'
+import React,{useState } from 'react'
+import axios from 'axios'
+import {useHistory} from 'react-router-dom'
 
 function Register() {
-  const handleOnSubmit = (e) => {};
 
-  const handleOnChange = (e) => {};
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+
+  const history = useHistory()
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault()
+    if(confirmPassword !== password) {
+      alert('Please check your Confirm password..')
+      return
+    }
+    axios.post('http://localhost:8080/register', {username, email, password})
+    .then( ()=> {
+      console.log('Register successful..')
+      history.push('/login')
+    })
+  };
+
+  // const handleOnChange = (e) => {};
+  
   return (
     <div className="row">
       <form
@@ -19,7 +41,8 @@ function Register() {
               type="text"
               name="username"
               className="form-control form-control-lg"
-              onChange={handleOnChange}
+              value={username}
+              onChange={e=>setUsername(e.target.value)}
             />
           </div>
         </div>
@@ -30,7 +53,8 @@ function Register() {
               type="text"
               name="email"
               className="form-control form-control-lg"
-              onChange={handleOnChange}
+              value={email}
+              onChange={e=>setEmail(e.target.value)}
             />
           </div>
         </div>
@@ -41,7 +65,8 @@ function Register() {
               type="password"
               name="password"
               className="form-control form-control-lg"
-              onChange={(e) => handleOnChange(e)}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
         </div>
@@ -52,7 +77,8 @@ function Register() {
               type="password"
               name="confirmPassword"
               className="form-control form-control-lg"
-              onChange={(e) => handleOnChange(e)}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
         </div>

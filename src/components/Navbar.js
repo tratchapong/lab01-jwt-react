@@ -7,6 +7,7 @@ function Navbar() {
   const hdlLogout = (e) => {
     e.preventDefault()
     localStorage.removeItem('token')
+    alert('Logout Successful')
     history.push('/login')
   }
   

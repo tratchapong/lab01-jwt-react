@@ -10,11 +10,18 @@ function Login() {
   const history = useHistory()
 
   const handleOnSubmit = async (e) => {
-    e.preventDefault()
-    let rs = await axios.post('http://localhost:8080/login', {username, password})
-    console.log(rs)
-    localStorage.setItem('token', rs.data.token)
-    history.push('/')
+    try {
+      e.preventDefault()
+      let rs = await axios.post('http://localhost:8080/login', {username, password})
+      console.log(rs)
+      localStorage.setItem('token', rs.data.token)
+      history.push('/')
+    } catch (error) {
+      // console.dir(error)
+      // alert(error.message)
+      alert(error.response.data.msg)
+    }
+
   };
 
   return (

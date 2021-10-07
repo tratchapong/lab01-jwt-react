@@ -13,13 +13,13 @@ function Register() {
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
-    if(confirmPassword !== password) {
+    if(confirmPassword !== password) {  
       alert('Please check your Confirm password..')
       return
     }
     axios.post('http://localhost:8080/register', {username, email, password})
     .then( ()=> {
-      console.log('Register successful..')
+      alert('Register successful..')
       history.push('/login')
     })
   };

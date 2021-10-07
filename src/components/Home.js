@@ -14,7 +14,7 @@ function Home() {
     else {
       axios.get('http://localhost:8080/profile',{
         headers : {
-            authorization : 'Bearer ' + localStorage.getItem('token')
+            authorization : 'Bearer ' + token
         }
       }).then(rs => {
         console.log(rs.data)
